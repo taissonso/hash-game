@@ -5,5 +5,81 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: #ffffff;
+    max-height: 100vh;
+}
+
+header {
+    height: 10vh;
+    width: 100vw;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+#jogador, #area-reiniciar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+}
+
+#area-reiniciar {
+    padding-right: 50px;
+}
+
+#btn-reiniciar {
+    background-color: green;
+    width: 100px;
+    height: 25px;
+}
+
+section {
+    background-color: yellow;
+}
+
+#modal {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    background-color:rgba(0,0,0,0.8);
+}
+
+#moldura-modal {
+    width: 40vw;
+    height: 50vh;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+
+#titulo-modal {
+    height: 10vh;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#escolha {
+    flex-grow: 1;
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    input {
+        width: 150px;
+        height: 150px;
+    }
 }
