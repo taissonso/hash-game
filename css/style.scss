@@ -5,14 +5,17 @@
 }
 
 body {
-    background-color: #ffffff;
-    max-height: 100vh;
+    background-color: #D1DAE3;
+    height: 100vh;
+}
+
+body[dark] {
+    background-color: #000000;
 }
 
 header {
     height: 10vh;
     width: 100vw;
-    background-color: blue;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -23,11 +26,28 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 50%;
     height: 100%;
 }
 
+#jogador {
+    width: 40%;
+    color: #000000;
+}
+
+#vez-jogar {
+    color: #000000;
+}
+
+body[dark] #jogador {
+    color: #ffffff;
+}
+
+body[dark] #vez-jogar {
+    color: #ffffff;
+}
+
 #area-reiniciar {
+    width: 46%;
     padding-right: 50px;
 }
 
@@ -38,8 +58,37 @@ header {
 }
 
 section {
-    background-color: yellow;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.tabuleiro {
+    width: 31vw;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 10vw 10vw 10vw;
+    grid-column-gap: 0.5vw;
+    grid-row-gap: 0.5vw;
+    background-color: #161616;
+    box-shadow: #161616 0px 0px 20px 4px;
+}
+
+.posicao {
+    background-color: #c8d8e9;
+}
+
+body[dark] .tabuleiro {
+    box-shadow: #D1DAE3 0px 0px 20px 4px;
+    // background-color: #D1DAE3;
+}
+
+// body[dark] .posicao {
+//     // box-shadow: #ffffff 0px 0px 20px 4px;
+//     background-color: #161616;
+// }
 
 #modal {
     width: 100vw;
@@ -74,12 +123,11 @@ section {
 #escolha {
     flex-grow: 1;
     display: flex;
-    // flex-direction: row;
     align-items: center;
     justify-content: space-around;
-
     input {
-        width: 150px;
-        height: 150px;
+        width: 10vw;
+        height: 25vh;
     }
+    background-color: blue;
 }

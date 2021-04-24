@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title># Jogo da Velha #</title>
+    <title>Jogo da Velha</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <div id="modal">
+        <div id="moldura-modal">
+            <span id="titulo-modal">escolha um lado</span>
+            <div id="escolha">
+                <input id="btn-x" type="button" value="X">
+                <input id="btn-o" type="button" value="O">
+            </div>
+        </div>
+    </div>
+
     <header>
-        <p id="jogador">Jogador <span></span></p>
+        <p id="jogador">Vez do Jogador&nbsp;</p>
+        <span id="vez-jogar"></span>
         <span id="area-reiniciar">
             <input type="button" value="Reiniciar" id="btn-reiniciar">
         </span>
@@ -19,17 +30,23 @@
     
     <section>
 
-    </section>
+        <div class="tabuleiro">
 
-    <div id="modal">
-        <div id="moldura-modal">
-            <span id="titulo-modal">Escolha uma opção</span>
-            <div id="escolha">
-                <input id="btn-x" type="button" value="X">
-                <input id="btn-o" type="button" value="O">
-            </div>
+            <div class="posicao" id="pos-1" value="-1"></div>
+            <div class="posicao" id="pos-2" value="-1"></div>
+            <div class="posicao" id="pos-3" value="-1"></div>
+       
+            <div class="posicao" id="pos-4" value="-1"></div>
+            <div class="posicao" id="pos-5" value="-1"></div>
+            <div class="posicao" id="pos-6" value="-1"></div>
+       
+            <div class="posicao" id="pos-7" value="-1"></div>
+            <div class="posicao" id="pos-8" value="-1"></div>
+            <div class="posicao" id="pos-9" value="-1"></div>
+
         </div>
-    </div>
+
+    </section>
 
     <script src="js/regras.js"></script>
 </body>
