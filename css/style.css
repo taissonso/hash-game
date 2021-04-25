@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "star";
+  src: url("../fonts/Starjedi.ttf");
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,10 +11,14 @@
 body {
   background-color: #D1DAE3;
   height: 100vh;
+  background-image: url("../image/bgyoda.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body[dark] {
   background-color: #000000;
+  background-image: url("../image/bgdarth.jpg");
 }
 
 header {
@@ -31,11 +39,18 @@ header {
 
 #jogador {
   width: 40%;
-  color: #000000;
+  color: #ffffff;
+  font-family: "star";
+  color: #EAD91D;
+  font-size: 3vw;
 }
 
 #vez-jogar {
-  color: #000000;
+  color: #ffffff;
+  width: 40px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 body[dark] #jogador {
@@ -47,7 +62,7 @@ body[dark] #vez-jogar {
 }
 
 #area-reiniciar {
-  width: 46%;
+  width: 33%;
   padding-right: 50px;
 }
 
@@ -78,6 +93,10 @@ section {
 
 .posicao {
   background-color: #c8d8e9;
+  object-fit: cover;
+  background-size: contain;
+  background-position-x: center;
+  background-repeat: no-repeat;
 }
 
 body[dark] .tabuleiro {
@@ -100,18 +119,27 @@ body[dark] .tabuleiro {
 
 #moldura-modal {
   width: 40vw;
-  height: 50vh;
-  background-color: blue;
+  height: 65vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: 5vh;
+  background-color: #bbbec9;
+  border: 20px solid black;
 }
 
 #titulo-modal {
-  height: 10vh;
-  background-color: yellow;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 4px 4px black;
+  font-size: 3vw;
+  transform: scaleY(1.2);
+  position: relative;
+  top: 5vh;
+  font-family: "star";
+  color: #EAD91D;
 }
 
 #escolha {
@@ -119,11 +147,33 @@ body[dark] .tabuleiro {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: blue;
 }
 #escolha input {
-  width: 10vw;
-  height: 25vh;
+  width: 250px;
+  height: 250px;
+  border: none;
+  border: 5px solid black;
+  cursor: pointer;
+}
+
+#btn-x {
+  background-image: url("../image/mestreyoda.png");
+  background-size: cover;
+  background-color: #13D813;
+}
+
+#btn-x:hover {
+  background-color: #006300;
+}
+
+#btn-o {
+  background-image: url("../image/darthvader.png");
+  background-size: cover;
+  background-color: #747474;
+}
+
+#btn-o:hover {
+  background-color: black;
 }
 
 /*# sourceMappingURL=style.css.map */
