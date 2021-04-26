@@ -1,10 +1,10 @@
 onload = ()=> {
-    console.log("CARGOU!!!!");
-
     document.querySelector('#btn-x').onclick = () => escolha('X');
     document.querySelector('#btn-o').onclick = () => escolha('O');
 
     document.querySelector('#btn-reiniciar').onclick = reiniciar;
+    document.querySelector('#btn-jogar').onclick = reiniciar;
+    document.querySelector('#fechar').onclick = fechar;
 
     document.querySelector('#pos-1').onclick = () => jogada('pos-1');
     document.querySelector('#pos-2').onclick = () => jogada('pos-2');
@@ -26,8 +26,6 @@ let jogador = '';
  */
 const escolha = (escolha) => {
     document.querySelector('#modal').style.display = 'none';
-    // document.querySelector('#vez-jogar').innerHTML = escolha;
-
     escolha == 'O' ? document.querySelector('body').setAttribute("dark", "true") : document.querySelector('body').removeAttribute("dark");
     escolha == 'O' ? document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/darthtab.png')" :document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/yodatab.png')";
 
@@ -40,7 +38,10 @@ const escolha = (escolha) => {
 const reiniciar = ()=> {
     document.querySelector('#modal').style.display = 'flex';
     document.querySelector('#vez-jogar').innerHTML = '';
-    
+    document.querySelector('#modal-vencedor').style.display = 'none';
+    document.querySelector('#empate').style.display = 'none';
+    document.querySelector('#jogador-vencedor').style.display = 'flex';
+    document.querySelector('#titulo-modal-vencedor').innerHTML = 'o vencedor foi';
     let array = document.querySelectorAll('.posicao');
     array.forEach(element => {
         element.setAttribute('value','-1');
@@ -50,18 +51,20 @@ const reiniciar = ()=> {
     jogador = '';
 }
 
+const fechar = () => {
+    document.querySelector('#modal-vencedor').style.display = 'none';
+}
+
 
 const jogada = (posicao) => {
    
     let position = document.getElementById(posicao).getAttribute('value');
     if(position == -1){
         if(jogador == 'X'){
-            // document.getElementById(posicao).style.background = 'blue';
             document.getElementById(posicao).style.backgroundImage = "url('../image/yodatab.png')";
             document.getElementById(posicao).setAttribute('value','1');
             trocaJogador();
         } else {
-            // document.getElementById(posicao).style.background = 'red';
             document.getElementById(posicao).style.backgroundImage = "url('../image/darthtab.png')";
             document.getElementById(posicao).setAttribute('value','2');
             trocaJogador();
@@ -74,18 +77,25 @@ const trocaJogador = () => {
     if(vencedor == false) {
         if(jogador == 'X'){
             jogador = 'O';
-            // document.querySelector('#vez-jogar').innerHTML = jogador;
             document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/darthtab.png')";
         } else {
             jogador = 'X';
-            // document.querySelector('#vez-jogar').innerHTML = jogador;
             document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/yodatab.png')";
         }
     } else {
         if(vencedor == -1) {
-            console.log("EMPATE")
+            document.querySelector('#titulo-modal-vencedor').innerHTML = 'empate';
+            document.querySelector('#jogador-vencedor').style.display = 'none';
+            document.querySelector('#modal-vencedor').style.display = 'flex';
+            document.querySelector('#empate').style.display = 'flex';
         } else{
-            console.log("Vencedor é o jogador " + jogador);
+            if(jogador == 'O'){
+                document.querySelector('#modal-vencedor').style.display = 'flex';
+                document.querySelector('#jogador-vencedor').style.backgroundImage = "url('../image/darthtab.png')";
+            } else {
+                document.querySelector('#modal-vencedor').style.display = 'flex';
+                document.querySelector('#jogador-vencedor').style.backgroundImage = "url('../image/mestreyoda.png')";
+            }
         }
     }
 }
@@ -119,6 +129,6 @@ const verificaVencedor = () => {
     } else if( (position[2] == position[5]) && (position[5] == position[8]) && (position[2] != '-1') ){
         return true;
     } 
-    console.log(vencedor)
+
     return vencedor > 0 ? false : '-1'; 
 }

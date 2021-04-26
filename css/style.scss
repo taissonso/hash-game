@@ -32,7 +32,9 @@ header {
     position: relative;
 }
 
-#jogador, #area-reiniciar {
+#jogador,
+#area-reiniciar,
+#vez-jogar {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -40,23 +42,26 @@ header {
 }
 
 #jogador {
-    width: 40%;
+    width: 80%;
     color: #ffffff;
     font-family: 'star';
     color: #EAD91D;
-    font-size: 3vw;
+    font-size: 4vw;
+    position: relative;
+    top: 4vh;
+    padding-right: 40px;
 }
 
 #vez-jogar {
     color: #ffffff;
-    width: 40px;
-    height: 50px;
+    width: 80px;
+    height: 60px;
     background-size: contain;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
 }
 
 body[dark] #jogador {
-    color: #ffffff;
+    color: #EAD91D;
 }
 
 body[dark] #vez-jogar {
@@ -64,14 +69,26 @@ body[dark] #vez-jogar {
 }
 
 #area-reiniciar {
-    width: 33%;
+    width: 20%;
     padding-right: 50px;
+    position: relative;
+    top: 5vh;
 }
 
 #btn-reiniciar {
-    background-color: green;
-    width: 100px;
-    height: 25px;
+    background-color: #EAD91D;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'star';
+    letter-spacing: 4px;
+}
+
+#btn-reiniciar:hover {
+    background-color: #575757;
+    color: #000000;
 }
 
 section {
@@ -103,10 +120,9 @@ section {
 
 body[dark] .tabuleiro {
     box-shadow: #D1DAE3 0px 0px 20px 4px;
-    // background-color: #D1DAE3;
 }
 
-#modal {
+#modal,#modal-vencedor {
     width: 100vw;
     height: 100vh;
     left: 0;
@@ -117,10 +133,14 @@ body[dark] .tabuleiro {
     justify-content: center;
     position: fixed;
     z-index: 9999;
-    background-color:rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-#moldura-modal {
+#modal-vencedor {
+    display: none;
+}
+
+#moldura-modal, #moldura-modal-vencedor {
     width: 40vw;
     height: 65vh;
     display: flex;
@@ -131,7 +151,11 @@ body[dark] .tabuleiro {
     border: 20px solid black;
 }
 
-#titulo-modal {
+#moldura-modal-vencedor {
+    align-items: center;
+}
+
+#titulo-modal, #titulo-modal-vencedor {
     height: 15vh;
     display: flex;
     align-items: center;
@@ -145,15 +169,67 @@ body[dark] .tabuleiro {
     color: #EAD91D;
 }
 
+#titulo-modal-vencedor {
+    top: -4vh;
+}
+
+#jogador-vencedor {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: -4vh;
+}
+
+#empate {
+    display: none;
+    height: 200px;
+    position: relative;
+    top: -4vh;
+}
+
+#fechar{
+    font-size: 28px;
+    font-family: 'star';
+    padding-right: 20px;
+    color: #000000;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+#btn-jogar{
+    width: 200px;
+    height: 30px;
+    position: relative;
+    top: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #102fbb;
+    height: 40px;
+    border: none;
+    color: #ffffff;
+    font-family: 'star';
+    letter-spacing: 4px;
+    cursor: pointer;
+    position: relative;
+    top: -2vh;
+}
+
 #escolha {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
+
     input {
-        width: 250px;
-        height: 250px;
+        width: 10vw;
+        height: 25vh;
         border: none;
         border: 5px solid black;
         cursor: pointer;
@@ -178,4 +254,53 @@ body[dark] .tabuleiro {
 
 #btn-o:hover {
     background-color: black;
+}
+
+@media (min-width: 1919px) {
+
+    #jogador {
+        font-size: 5vw;
+        position: relative;
+        top: 4vh;
+        left: 3vw;
+    }
+
+    #vez-jogar {
+        width: 100px;
+        height: 100px;
+    }
+
+    #area-reiniciar {
+        position: relative;
+        top: 5vh;
+        padding-right: 75px;
+    }
+
+    #escolha {
+        input {
+            width: 15vw;
+            height: 30vh;
+        }
+    }
+
+    
+    #empate {
+        top: 0vh;
+    }
+
+    #jogador-vencedor {
+        width: 250px;
+        height: 250px;
+        background-color: red;
+        position: relative;
+        top: 0px;
+    }
+
+    #btn-jogar{
+        width: 300px;
+        height: 50px;
+        top: 100px;
+        font-size: 21px;
+    }
+ 
 }
