@@ -27,7 +27,7 @@ let jogador = '';
 const escolha = (escolha) => {
     document.querySelector('#modal').style.display = 'none';
     escolha == 'O' ? document.querySelector('body').setAttribute("dark", "true") : document.querySelector('body').removeAttribute("dark");
-    escolha == 'O' ? document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/darthtab.png')" :document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/yodatab.png')";
+    escolha == 'O' ? document.querySelector('#vez-jogar').style.backgroundImage = "url('image/darthtab.png')" :document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/yodatab.png')";
 
     jogador = escolha;
 }
@@ -64,11 +64,11 @@ const jogada = (posicao) => {
     let position = document.getElementById(posicao).getAttribute('value');
     if(position == -1){
         if(jogador == 'X'){
-            document.getElementById(posicao).style.backgroundImage = "url('../image/yodatab.png')";
+            document.getElementById(posicao).style.backgroundImage = "url('image/yodatab.png')";
             document.getElementById(posicao).setAttribute('value','1');
             trocaJogador();
         } else {
-            document.getElementById(posicao).style.backgroundImage = "url('../image/darthtab.png')";
+            document.getElementById(posicao).style.backgroundImage = "url('image/darthtab.png')";
             document.getElementById(posicao).setAttribute('value','2');
             trocaJogador();
         }
@@ -85,10 +85,10 @@ const trocaJogador = () => {
     if(vencedor == false) {
         if(jogador == 'X'){
             jogador = 'O';
-            document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/darthtab.png')";
+            document.querySelector('#vez-jogar').style.backgroundImage = "url('image/darthtab.png')";
         } else {
             jogador = 'X';
-            document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/yodatab.png')";
+            document.querySelector('#vez-jogar').style.backgroundImage = "url('image/yodatab.png')";
         }
     } else {
         if(vencedor == -1) {
@@ -99,10 +99,10 @@ const trocaJogador = () => {
         } else{
             if(jogador == 'O'){
                 document.querySelector('#modal-vencedor').style.display = 'flex';
-                document.querySelector('#jogador-vencedor').style.backgroundImage = "url('../image/darthtab.png')";
+                document.querySelector('#jogador-vencedor').style.backgroundImage = "url('image/darthtab.png')";
             } else {
                 document.querySelector('#modal-vencedor').style.display = 'flex';
-                document.querySelector('#jogador-vencedor').style.backgroundImage = "url('../image/mestreyoda.png')";
+                document.querySelector('#jogador-vencedor').style.backgroundImage = "url('image/mestreyoda.png')";
             }
         }
     }
