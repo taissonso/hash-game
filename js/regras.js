@@ -33,7 +33,7 @@ const escolha = (escolha) => {
 }
 
 /**
- * Reinicia o Jogo para escolher com qual lado quer jogar.
+ * Reinicia o Jogo para escolher com qual lado quer jogar, limpando os campos do tabuleiro.
  */
 const reiniciar = ()=> {
     document.querySelector('#modal').style.display = 'flex';
@@ -51,11 +51,14 @@ const reiniciar = ()=> {
     jogador = '';
 }
 
+/** Para fechar o modal do vencedor para ver como o jogo terminou */
 const fechar = () => {
     document.querySelector('#modal-vencedor').style.display = 'none';
 }
 
-
+/**
+ * Pega a posição de onde foi feita a jogada, coloca a imagem e chama a função de trocarJogador.
+ */
 const jogada = (posicao) => {
    
     let position = document.getElementById(posicao).getAttribute('value');
@@ -72,6 +75,11 @@ const jogada = (posicao) => {
     }
 }
 
+/**
+ * Faz a troca do jogador e verifica se teve um vencedor. 
+ * Se acontecer empate mostra o modal com a mensagem de empate.
+ * Caso tenha um vencedor mostra o vencedor em um modal.
+ */
 const trocaJogador = () => {
     let vencedor = verificaVencedor();
     if(vencedor == false) {
@@ -100,6 +108,13 @@ const trocaJogador = () => {
     }
 }
 
+
+/**
+ * Verifica se tem um vencedor, faz uma cópia dos values das posições do tabuleiro, e faz varios if's 
+ * para verificar se existe um vencedor nas diagonais, linhas ou colunas. Caso não tenha um vencedor faz um 
+ * if ternário final para retornar que houve um empate entre os jogadores.
+ * 
+ */
 const verificaVencedor = () => {
     let vencedor = 0;
     let array = document.querySelectorAll('.posicao');

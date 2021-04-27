@@ -3,7 +3,6 @@
     src: url('../fonts/Starjedi.ttf');
 }
 
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -115,7 +114,9 @@ section {
     object-fit: cover;
     background-size: contain;
     background-position-x: center;
+    background-position-y: center;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 body[dark] .tabuleiro {
@@ -153,6 +154,7 @@ body[dark] .tabuleiro {
 
 #moldura-modal-vencedor {
     align-items: center;
+    width: 45vw;
 }
 
 #titulo-modal, #titulo-modal-vencedor {
@@ -177,8 +179,9 @@ body[dark] .tabuleiro {
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: center;
-    width: 200px;
-    height: 200px;
+    background-position-y: center;
+    width: 250px;
+    height: 250px;
     position: relative;
     top: -4vh;
 }
@@ -189,6 +192,7 @@ body[dark] .tabuleiro {
     position: relative;
     top: -4vh;
 }
+
 
 #fechar{
     font-size: 28px;
@@ -201,6 +205,7 @@ body[dark] .tabuleiro {
     align-items: center;
     justify-content: flex-end;
     cursor: pointer;
+    z-index: 154;
 }
 
 #btn-jogar{
@@ -228,8 +233,8 @@ body[dark] .tabuleiro {
     justify-content: space-around;
 
     input {
-        width: 10vw;
-        height: 25vh;
+        width: 15vw;
+        height: 30vh;
         border: none;
         border: 5px solid black;
         cursor: pointer;
@@ -238,7 +243,10 @@ body[dark] .tabuleiro {
 
 #btn-x {
     background-image: url('../image/mestreyoda.png');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
     background-color: #13D813;
 }
 
@@ -248,7 +256,10 @@ body[dark] .tabuleiro {
 
 #btn-o {
     background-image: url('../image/darthvader.png');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
     background-color: #747474;
 }
 
@@ -257,6 +268,10 @@ body[dark] .tabuleiro {
 }
 
 @media (min-width: 1919px) {
+
+    #moldura-modal-vencedor {
+        height: 50vh;
+    }
 
     #jogador {
         font-size: 5vw;
@@ -276,14 +291,6 @@ body[dark] .tabuleiro {
         padding-right: 75px;
     }
 
-    #escolha {
-        input {
-            width: 15vw;
-            height: 30vh;
-        }
-    }
-
-    
     #empate {
         top: 0vh;
     }
@@ -291,9 +298,8 @@ body[dark] .tabuleiro {
     #jogador-vencedor {
         width: 250px;
         height: 250px;
-        background-color: red;
         position: relative;
-        top: 0px;
+        top: -5vh;
     }
 
     #btn-jogar{
@@ -301,6 +307,102 @@ body[dark] .tabuleiro {
         height: 50px;
         top: 100px;
         font-size: 21px;
+        position: relative;
+        top: -3vh;
     }
  
+}
+
+@media (min-height: 1020px) {
+    #moldura-modal-vencedor {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    #moldura-modal, #moldura-modal-vencedor {
+        width: 100vw;
+    }
+
+    #titulo-modal {
+        font-size: 7vw;
+        top: 0;
+    }
+
+    #titulo-modal-vencedor {
+        font-size: 7vw;
+    }
+
+    #fechar {
+        z-index: 154;
+    }
+
+    #escolha input {
+       width: 30vw;
+    }
+
+    header {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #area-reiniciar {
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    #jogador {
+        width: 100%;
+        top: 8vh;
+        font-size: 6vw;
+        padding-right: 0;
+        justify-content: center;
+    }
+
+    body {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #1E6A28;
+    }
+    
+    body[dark] {
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .tabuleiro {
+        width: 61vw;
+        grid-template-columns: 20vw 20vw 20vw;
+    }
+
+   
+}
+
+@media (max-width: 500px) {
+    #jogador {
+        justify-content: flex-end;
+        padding-right: 0;
+    }
+
+    .tabuleiro {
+        width: 100vw;
+        grid-template-columns: 33vw 33vw 33vw;
+    }
+
+    
+    #empate {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #empate img {
+        height: auto;
+        width: 50%;
+        padding-left: 10px;;
+    }
 }
