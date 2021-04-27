@@ -27,7 +27,7 @@ let jogador = '';
 const escolha = (escolha) => {
     document.querySelector('#modal').style.display = 'none';
     escolha == 'O' ? document.querySelector('body').setAttribute("dark", "true") : document.querySelector('body').removeAttribute("dark");
-    escolha == 'O' ? document.querySelector('#vez-jogar').style.backgroundImage = "url('image/darthtab.png')" :document.querySelector('#vez-jogar').style.backgroundImage = "url('../image/yodatab.png')";
+    escolha == 'O' ? document.querySelector('#vez-jogar').style.backgroundImage = "url('image/darthtab.png')" :document.querySelector('#vez-jogar').style.backgroundImage = "url('image/yodatab.png')";
 
     jogador = escolha;
 }
